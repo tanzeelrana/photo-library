@@ -1,0 +1,14 @@
+<div class="home">
+  <label for="albumId" style="margin: 0 4px;">albumId</label>
+  <input [(ngModel)]="albumId" id="albumId" style="margin: 0 4px;"/>
+  <button (click)="getAlbumDataById()" style="margin: 0 4px;">Get Data</button>
+
+</div>
+
+<div *ngIf="!loading && selectedAlbumId" style="display: inline-block; overflow-x: auto; width: 90vw; height: 80vh;">
+  photo-album {{selectedAlbumId}} <span style=" margin: 0 0.25em;" *ngFor="let album of albumData" >[{{album.id}}] {{album.title}}</span>
+</div>
+
+<div *ngIf="loading" style="display: flex; justify-content: center;">
+  LOADING
+</div>
